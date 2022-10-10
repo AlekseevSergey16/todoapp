@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:hint="@string/new_task"/>
 
-        <com.google.android.material.checkbox.MaterialCheckBox
+        <CheckBox
             android:id="@+id/completed_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/completed"/>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/delete_button"
             style="@android:style/Widget.Material.Button.Borderless.Colored"
             android:layout_width="wrap_content"

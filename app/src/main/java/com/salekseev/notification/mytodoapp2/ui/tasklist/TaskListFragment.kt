@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -41,7 +42,7 @@ class TaskListFragment : Fragment() {
         adapter = TaskListAdapter(object : OnItemClickListener {
             override fun onItemClicked(task: Task) {
                 val bundle = bundleOf(Pair(ARG_TASK_ID, task.id))
-                Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, bundle)
+                Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, bundle, navOptions())
             }
 
             override fun onCheckBoxClicked(taskId: Long, checked: Boolean) {
@@ -52,7 +53,7 @@ class TaskListFragment : Fragment() {
 
         addButton = view.findViewById(R.id.add_button)
         addButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.addEditTaskFragment)
+            Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, null, navOptions())
         }
 
         viewModel.tasks.observe(viewLifecycleOwner) { tasks ->
@@ -66,6 +67,13 @@ class TaskListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAllTasks()
     }
+
+    private fun navOptions(): NavOptions = NavOptions.Builder()
+        .setEnterAnim(R.anim.slide_in_right)
+        .setExitAnim(R.anim.slide_in_left)
+        .setPopEnterAnim(R.anim.slide_out_left)
+        .setPopExitAnim(R.anim.slide_out_right)
+        .build()
 
     companion object {
         @JvmStatic
