@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyTodoApp2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_task">Новая запись</string>
+    <string name="completed">Завершенно</string>
+    <string name="all_tasks">Все записи</string>
+    <string name="delete">Удалить</string>
+</resources>
