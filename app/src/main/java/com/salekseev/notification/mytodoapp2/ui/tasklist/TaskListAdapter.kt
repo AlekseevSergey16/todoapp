@@ -1,11 +1,13 @@
 package com.salekseev.notification.mytodoapp2.ui.tasklist
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,14 +22,6 @@ interface OnItemClickListener {
 class TaskListAdapter(
     private val listener: OnItemClickListener
 ) : ListAdapter<Task, TaskListAdapter.TaskHolder>(ItemCallback) {
-
-//    override fun onClick(v: View) {
-//        val task = v.tag as Task
-//        when (v.id) {
-//            R.id.completed_checkbox -> listener.onCheckBoxClicked(task.id!!)
-//            else -> listener.onItemClicked(task)
-//        }
-//    }
 
     inner class TaskHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView = itemView.findViewById<TextView>(R.id.title_task_textview)
@@ -47,8 +41,10 @@ class TaskListAdapter(
 
             if (task.completed) {
                 titleTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                titleTextView.setTextColor(Color.parseColor("#4D000000"))
             } else {
                 titleTextView.paintFlags = Paint.ANTI_ALIAS_FLAG
+                titleTextView.setTextColor(Color.parseColor("#FF000000"))
             }
         }
     }

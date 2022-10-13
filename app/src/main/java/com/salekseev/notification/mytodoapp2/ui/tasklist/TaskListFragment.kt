@@ -42,7 +42,7 @@ class TaskListFragment : Fragment() {
         adapter = TaskListAdapter(object : OnItemClickListener {
             override fun onItemClicked(task: Task) {
                 val bundle = bundleOf(Pair(ARG_TASK_ID, task.id))
-                Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, bundle, navOptions())
+                Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, bundle, navOptions2())
             }
 
             override fun onCheckBoxClicked(taskId: Long, checked: Boolean) {
@@ -53,7 +53,7 @@ class TaskListFragment : Fragment() {
 
         addButton = view.findViewById(R.id.add_button)
         addButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, null, navOptions())
+            Navigation.findNavController(view).navigate(R.id.addEditTaskFragment, null, navOptions2())
         }
 
         viewModel.tasks.observe(viewLifecycleOwner) { tasks ->
@@ -73,6 +73,13 @@ class TaskListFragment : Fragment() {
         .setExitAnim(R.anim.slide_in_left)
         .setPopEnterAnim(R.anim.slide_out_left)
         .setPopExitAnim(R.anim.slide_out_right)
+        .build()
+
+    private fun navOptions2(): NavOptions = NavOptions.Builder()
+        .setEnterAnim(androidx.appcompat.R.anim.abc_fade_in)
+        .setExitAnim(androidx.appcompat.R.anim.abc_fade_out)
+        .setPopEnterAnim(androidx.appcompat.R.anim.abc_fade_in)
+        .setPopExitAnim(androidx.appcompat.R.anim.abc_fade_out)
         .build()
 
     companion object {
