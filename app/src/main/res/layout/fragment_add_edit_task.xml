@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         app:srcCompat="@drawable/ic_check_foreground"
         app:maxImageSize="32dp"/>
 

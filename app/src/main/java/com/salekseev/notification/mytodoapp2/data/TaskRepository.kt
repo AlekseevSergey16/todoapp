@@ -40,8 +40,7 @@ class TaskRepository private constructor() {
     }
 
     private fun createTasks(): MutableList<Task> {
-        return mutableListOf(Task(0,"Сделать кс", true),
-            Task(1,"Сделать 1с", false))
+        return mutableListOf()
     }
 
     companion object {

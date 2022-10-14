@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/taskListFragment"
         android:name="com.salekseev.notification.mytodoapp2.ui.tasklist.TaskListFragment"
-        android:label="Записи"
+        android:label="Мои записи"
         tools:layout="@layout/fragment_task_list" >
         <action
             android:id="@+id/action_taskListFragment_to_addEditTaskFragment"

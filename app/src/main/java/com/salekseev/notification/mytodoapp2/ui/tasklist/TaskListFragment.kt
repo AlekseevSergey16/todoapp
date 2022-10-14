@@ -37,7 +37,7 @@ class TaskListFragment : Fragment() {
 
         tasksRecyclerView = view.findViewById(R.id.tasks_recyclerview)
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        tasksRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
+        //tasksRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
 
         adapter = TaskListAdapter(object : OnItemClickListener {
             override fun onItemClicked(task: Task) {
